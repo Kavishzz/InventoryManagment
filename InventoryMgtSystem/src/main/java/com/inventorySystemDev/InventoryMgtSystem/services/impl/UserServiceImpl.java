@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService{
 
         UserRole role = UserRole.MANAGER;
 
-        if(registerRequest.getRole() == null){
+        if(registerRequest.getRole() != null){
             role = registerRequest.getRole();
         }
 
@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService{
                           .name(registerRequest.getName())
                           .email(registerRequest.getEmail())
                           .password(passwordEncoder.encode(registerRequest.getPassword()))
+                          .phoneNumber(registerRequest.getPhoneNumber())
                           .role(role)
                           .build();
         

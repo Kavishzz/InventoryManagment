@@ -2,8 +2,7 @@ package com.inventorySystemDev.InventoryMgtSystem.models;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import org.springframework.transaction.TransactionStatus;
-
+import com.inventorySystemDev.InventoryMgtSystem.enums.TransactionStatus;
 import com.inventorySystemDev.InventoryMgtSystem.enums.TransactionType;
 
 import jakarta.persistence.*;
@@ -46,11 +45,11 @@ public class Transaction {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private Product user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "supplier_id")
-    private Product supplier;
+    private Supplier supplier;
 
     @Override
     public String toString() {

@@ -14,6 +14,7 @@ import com.inventorySystemDev.InventoryMgtSystem.models.Category;
 import com.inventorySystemDev.InventoryMgtSystem.repositories.CategoryRepository;
 import com.inventorySystemDev.InventoryMgtSystem.services.CategoryService;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,12 +23,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CategoryServiceImpl implements CategoryService{
 
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
+
+     @PostConstruct
+    public void init() {
+        log.info("ModelMapper injected in CategoryServiceImpl: {}", modelMapper != null ? "Yes" : "No");
+        log.info("CategoryRepository injected in CategoryServiceImpl: {}", categoryRepository != null ? "Yes" : "No");
+    }
     
     @Override
     public Response createCategory(CategoryDTO categoryDTO) {
+        log.info("Category is, ()", categoryDTO);
 
         Category categoryToSave = modelMapper.map(categoryDTO, Category.class );
 
@@ -46,8 +54,7 @@ public class CategoryServiceImpl implements CategoryService{
 
         categories.forEach(category -> category.setProducts(null));
 
-        List<CategoryDTO> categoryDTOList = modelMapper.map(categories, new TypeToken<CategoryDTO>()
-                                {}.getType());
+        List<CategoryDTO> categoryDTOList = modelMapper.map(categories, new TypeToken<List<CategoryDTO>>() {}.getType());
         
         return Response.builder()
                 .status(200)

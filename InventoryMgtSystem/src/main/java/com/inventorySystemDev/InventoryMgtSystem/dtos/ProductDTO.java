@@ -19,11 +19,11 @@ public class ProductDTO {
 
     private long id;
 
-    private long productId;
+    private Long productId;
 
-    private long categoryId;
+    private Long categoryId;
 
-    private long supplierId;
+    private Long supplierId;
 
     private String name;
 
@@ -31,7 +31,7 @@ public class ProductDTO {
 
     private BigDecimal price;
 
-    private Integer stockInteger;
+    private Integer stockQuantity;
 
     private String description;
     private LocalDateTime expiryDate;

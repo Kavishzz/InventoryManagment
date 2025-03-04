@@ -35,7 +35,7 @@ public class Product {
     private BigDecimal price;
 
     @Min(value = 0, message = "stock quantity can not be negative")
-    private Integer stockInteger;
+    private Integer stockQuantity;
 
     private String description;
     private LocalDateTime expiryDate;
@@ -50,7 +50,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product [id=" + id + ", name=" + name + ", sku=" + sku + ", price=" + price + ", stockInteger="
-                + stockInteger + ", description=" + description + ", expiryDate=" + expiryDate + ", imageUrl="
+                + stockQuantity + ", description=" + description + ", expiryDate=" + expiryDate + ", imageUrl="
                 + imageUrl + ", createdAt=" + createdAt + "]";
     }
 

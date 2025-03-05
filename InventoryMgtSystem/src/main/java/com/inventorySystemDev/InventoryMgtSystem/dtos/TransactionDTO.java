@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TransactionDTO {
 
-    private long id;
+    private Long id;
 
     private Integer totalProducts;
 

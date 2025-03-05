@@ -113,7 +113,13 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Response getAllProducts() {
-        List<Product> productList = productRepository.findAll(Sort.by(Sort.Direction.DESC));
+        log.info("Request came to getAllProducts...");
+        List<Product> productList = productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        log.info("Product list size: {}", productList.size()); // log to check if product list is empty
+
+        if (productList.isEmpty()) {
+            log.error("No products found in the database!");
+        }
 
         List<ProductDTO> productDTOList = modelMapper.map(productList, new TypeToken<List<ProductDTO>>() {}.getType());
 

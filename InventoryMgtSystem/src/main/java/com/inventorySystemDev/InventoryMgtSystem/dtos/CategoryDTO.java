@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryDTO {
 
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Name is required")
     private String name;

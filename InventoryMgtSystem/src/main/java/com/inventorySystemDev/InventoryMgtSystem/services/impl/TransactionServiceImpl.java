@@ -175,7 +175,7 @@ public class TransactionServiceImpl implements TransactionService{
         Specification<Transaction> spec = TransactionFilter.byFilter(filter);
         Page<Transaction> transactionPage = transactionRepository.findAll(spec, pageable);
 
-        List<TransactionDTO> transactionDTOS = modelMapper.map(transactionPage.getContent(), new TypeToken<List<List<TransactionDTO>>>()
+        List<TransactionDTO> transactionDTOS = modelMapper.map(transactionPage.getContent(), new TypeToken<List<TransactionDTO>>()
                                     {}.getType());
         
         transactionDTOS.forEach(transactionDTO -> {

@@ -2,10 +2,10 @@ package com.inventorySystemDev.InventoryMgtSystem.dtos;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import org.springframework.transaction.TransactionStatus;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.inventorySystemDev.InventoryMgtSystem.enums.TransactionStatus;
 import com.inventorySystemDev.InventoryMgtSystem.enums.TransactionType;
 
 import lombok.AllArgsConstructor;
@@ -37,9 +37,9 @@ public class TransactionDTO {
 
     private ProductDTO product;
 
-    private ProductDTO user;
+    private UserDTO user;
 
-    private ProductDTO supplier;
+    private SupplierDTO supplier;
 
     
 

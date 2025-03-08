@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inventorySystemDev.InventoryMgtSystem.dtos.Response;
 import com.inventorySystemDev.InventoryMgtSystem.dtos.UserDTO;
+import com.inventorySystemDev.InventoryMgtSystem.models.User;
 import com.inventorySystemDev.InventoryMgtSystem.services.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -50,6 +51,11 @@ public class UserController {
     @GetMapping("transactions/{userId}")
     public ResponseEntity<Response> getUserAndTransactions(@PathVariable Long userId) {
         return ResponseEntity.ok(userService.getUserTransactions(userId));
+    }
+
+    @GetMapping("current")
+    public ResponseEntity<User> getCurrentUser() {
+        return ResponseEntity.ok(userService.getCurrentLoggedInUser());
     }
 
 }

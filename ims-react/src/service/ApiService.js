@@ -19,7 +19,7 @@ export default class ApiService{
     }
 
     //save token with encryption
-    static saveToen(token){
+    static saveToken(token){
         const encryptedToken = this.encrypt(token);
         localStorage.setItem("token", encryptedToken);
     }

@@ -17,7 +17,7 @@ const PaginationComponent = ({crrentPage, totalPages, onPageChange}) => {
                 onClick={() => onPageChange(number)}>
                 {number}
                 </button>
-            ))}
+            ))}             
 
             <button className="pagination-container"
             disabled={crrentPage === totalPages}
@@ -27,3 +27,5 @@ const PaginationComponent = ({crrentPage, totalPages, onPageChange}) => {
         </div>
     )
 }
+
+export default PaginationComponent;

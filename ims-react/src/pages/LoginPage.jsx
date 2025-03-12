@@ -17,7 +17,7 @@ const LoginPage = () => {
             const resp = await ApiService.loginUser(loginData);
             console.log(resp)
 
-            if(resp.status == 200){
+            if(resp.status === 200){
                 ApiService.saveToken(resp.token)
                 ApiService.saveRole(resp.role)
                 setMessage(resp.message)

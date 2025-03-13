@@ -21,7 +21,7 @@ const CategoryPage = () => {
                 }
             } catch (error) {
                 showMessage(
-                    error.response?.data?.message || "Error in Login User: " + error
+                    error.response?.data?.message || "Error in getting categories: " + error
                 );
             }
         };
@@ -42,7 +42,7 @@ const CategoryPage = () => {
             window.location.reload();//reload page
         } catch (error) {
             showMessage(
-                error.response?.data?.message || "Error in Login User: " + error
+                error.response?.data?.message || "Error in creating category: " + error
             );
         }
     }
@@ -57,7 +57,7 @@ const CategoryPage = () => {
             window.location.reload();//reload page
         } catch (error) {
             showMessage(
-                error.response?.data?.message || "Error in Login User: " + error
+                error.response?.data?.message || "Error in editing category: " + error
             );
         }
     }
@@ -80,7 +80,7 @@ const CategoryPage = () => {
                 window.location.reload();//reload page
             } catch (error) {
                 showMessage(
-                    error.response?.data?.message || "Error in Login User: " + error
+                    error.response?.data?.message || "Error in deleting categoryr: " + error
                 );
             }
         }

@@ -206,7 +206,7 @@ export default class ApiService{
 
     /** SUPPLIER ENDPOINTS*/
 
-    static async createSupplier(supplierData){
+    static async addSupplier(supplierData){
         const response = await axios.post(`${this.BASE_URL}/suppliers/add`, supplierData, {
             headers: this.getHeader()
         });

@@ -24,7 +24,6 @@ public class Supplier {
     @NotBlank(message = "Name is required")
     private String name;
 
-    @Column(unique = true)
     @NotBlank(message = "contactInfo is required")
     private String contactInfo;
 

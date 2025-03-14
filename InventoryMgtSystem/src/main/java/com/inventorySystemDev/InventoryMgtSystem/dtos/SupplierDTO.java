@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SupplierDTO {
 
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Name is required")
     private String name;

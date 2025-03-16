@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import CategoryPage from "./pages/CategoryPage";
 import SupplierPage from "./pages/SupplierPage";
 import AddEditSupplierPage from "./pages/AddEditSupplierPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/category" element={<AdminRoute element={<CategoryPage/>}/>}/>
         <Route path="/supplier" element={<AdminRoute element={<SupplierPage/>}/>}/>
         <Route path="/add-supplier" element={<AdminRoute element={<AddEditSupplierPage/>}/>}/>
-        <Route path="/edit-supplier/:supplierId" element={<AdminRoute element={<AddEditSupplierPage/>}/>}/>
+        <Route path="/edit-supplier/:supplierId" element={<AdminRoute element={<AddEditSupplierPage/>}/>}/>ProductPage
+        <Route path="/product" element={<AdminRoute element={<ProductPage/>}/>}/>
       </Routes>
     </Router>
   );

@@ -54,7 +54,7 @@ const AddEditSupplierPage = () =>{
             }
         } catch (error) {
             showMessage(
-                error.response?.data?.message || "Error in add-edit suppl: " + error
+                error.response?.data?.message || "Error in add-edit supplier: " + error
             );
         }
     };

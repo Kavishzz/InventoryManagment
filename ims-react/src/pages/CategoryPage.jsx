@@ -80,11 +80,11 @@ const CategoryPage = () => {
                 window.location.reload();//reload page
             } catch (error) {
                 showMessage(
-                    error.response?.data?.message || "Error in deleting categoryr: " + error
+                    error.response?.data?.message || "Error in deleting category: " + error
                 );
             }
         }
-    }
+    };
 
     //method to show message for errors
     const showMessage = (msg) => {

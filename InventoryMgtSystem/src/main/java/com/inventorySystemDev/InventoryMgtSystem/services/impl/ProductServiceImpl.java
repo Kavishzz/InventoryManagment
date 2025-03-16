@@ -33,7 +33,9 @@ public class ProductServiceImpl implements ProductService{
     private final ModelMapper modelMapper;
     private final CategoryRepository categoryRepository;
 
-    private static final String IMAGE_DIRECTORY = System.getProperty("user.dir") + "/product-image/";
+    // private static final String IMAGE_DIRECTORY = System.getProperty("user.dir") + "/product-image/";
+    // AFTER YOUR FROUNTEND IS SETUP CHANGE THE DIRECTORY TO THE FRONTEND YPU ARE USING
+    private static final String IMAGE_DIRECTORY_2 = "C:" + File.separator + "Users" + File.separator + "avina" + File.separator + "OneDrive" + File.separator + "Documents" + File.separator + "Kavish" + File.separator + "Frontend" + File.separator + "InventoryManagment" + File.separator + "ims-react" + File.separator + "public" + File.separator + "products" + File.separator;
     
     @Override
     public Response saveProduct(ProductDTO productDTO, MultipartFile imagFile) {
@@ -52,7 +54,8 @@ public class ProductServiceImpl implements ProductService{
 
         if(imagFile != null && !imagFile.isEmpty()){
             log.info("Image file exists");
-            String imagePath = saveImage(imagFile);
+            //String imagePath = saveImage(imagFile); //use this when you haven't setup your frontend 
+            String imagePath = saveImage2(imagFile); // use this when you have setup your frountend locallybut haven't deployed to production
             productToSave.setImageUrl(imagePath);
         }
 
@@ -73,7 +76,8 @@ public class ProductServiceImpl implements ProductService{
 
         //check if image is associated with the product to update and upload
         if(imagFile != null && !imagFile.isEmpty()){
-            String imagePath = saveImage(imagFile);
+            //String imagePath = saveImage(imagFile); //use this when you haven't setup your frontend 
+            String imagePath = saveImage2(imagFile); // use this when you have setup your frountend locallybut haven't deployed to production
             exisProduct.setImageUrl(imagePath);
         }
 
@@ -175,19 +179,52 @@ public class ProductServiceImpl implements ProductService{
 
     }
 
+    //This saves to the root of your project
+    // @SuppressWarnings("null")
+    // private String saveImage(MultipartFile imageFile){
+    //     //validate image and check if it is greater than 1GIG
+    //     if(!imageFile.getContentType().startsWith("image/") || imageFile.getSize() > 1024 * 1024 * 1024){
+    //         throw new IllegalArgumentException("Only image file under 1GIG is allowed");
+    //     }
 
+    //     //create the directory if it doesn't exist
+    //     File directory = new File(IMAGE_DIRECTORY);
+
+    //     if(!directory.exists()){
+    //         directory.mkdir();
+    //         log.info("Directory was created");
+    //     }
+
+    //     //generate unique file name for the image
+    //     String uniqueFileName = UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
+
+    //     //Get the absolute path of the image
+    //     String imagePath = IMAGE_DIRECTORY + uniqueFileName;
+
+    //     try{
+    //         File destinationFile = new File(imagePath);
+    //         imageFile.transferTo(destinationFile); //we are wrting the image to this folder 
+    //     }catch(IOException e){
+    //         throw new IllegalArgumentException("Error saving Image: " + e.getMessage());
+    //     }  
+
+    //     return imagePath;
+    // }
+
+    //This saves image to the public folder in your frontend
+    //Use this if you have setup your frontend
     @SuppressWarnings("null")
-    private String saveImage(MultipartFile imageFile){
+    private String saveImage2(MultipartFile imageFile){
         //validate image and check if it is greater than 1GIG
         if(!imageFile.getContentType().startsWith("image/") || imageFile.getSize() > 1024 * 1024 * 1024){
             throw new IllegalArgumentException("Only image file under 1GIG is allowed");
         }
 
         //create the directory if it doesn't exist
-        File directory = new File(IMAGE_DIRECTORY);
+        File directory = new File(IMAGE_DIRECTORY_2);
 
         if(!directory.exists()){
-            directory.mkdir();
+            directory.mkdirs();
             log.info("Directory was created");
         }
 
@@ -195,7 +232,7 @@ public class ProductServiceImpl implements ProductService{
         String uniqueFileName = UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
 
         //Get the absolute path of the image
-        String imagePath = IMAGE_DIRECTORY + uniqueFileName;
+        String imagePath = IMAGE_DIRECTORY_2 + uniqueFileName;
 
         try{
             File destinationFile = new File(imagePath);
@@ -203,8 +240,7 @@ public class ProductServiceImpl implements ProductService{
         }catch(IOException e){
             throw new IllegalArgumentException("Error saving Image: " + e.getMessage());
         }  
-
-        return imagePath;
+        return "products/" + uniqueFileName;
     }
 
     

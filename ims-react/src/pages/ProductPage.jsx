@@ -13,7 +13,7 @@ const ProductPage = () => {
     //Pagination Set-Up
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const itemsPerPage = 5;
+    const itemsPerPage = 10;
 
     useEffect(() => {
         const getProducts = async () => {
@@ -44,7 +44,7 @@ const ProductPage = () => {
             try {
                 await ApiService.deleteProduct(productId);
                 showMessage("Product successfully deleted")
-                //window.location.reload();//reload page
+                window.location.reload();//reload page
             } catch (error) {
                 showMessage(
                     error.response?.data?.message || "Error in deleting product: " + error
@@ -85,7 +85,7 @@ const ProductPage = () => {
                                     <h3 className="product-name">{product.name}</h3>
                                     <p className="product-sku">Sku: {product.sku}</p>
                                     <p className="product-price">Price: {product.price}</p>
-                                    <p className="product-quantity">Quantity: {product.quantity}</p>
+                                    <p className="product-quantity">Quantity: {product.stockQuantity}</p>
                                 </div>
 
                                 <div className="product-actions">

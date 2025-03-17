@@ -113,7 +113,7 @@ export default class ApiService{
 
     /** PRODUCT ENDPOINTS */
 
-    static async addProducts(formData){
+    static async addProduct(formData){
         const response = await axios.post(`${this.BASE_URL}/products/add`, formData, {
             headers: {
                 ...this.getHeader(),
@@ -123,8 +123,8 @@ export default class ApiService{
         return response.data;
     }
 
-    static async updateProducts(formData){
-        const response = await axios.pur(`${this.BASE_URL}/products/update`, formData, {
+    static async updateProduct(formData){
+        const response = await axios.put(`${this.BASE_URL}/products/update`, formData, {
             headers: {
                 ...this.getHeader(),
             "Content-Type": "multipart/form-data"
@@ -277,7 +277,7 @@ export default class ApiService{
     }
 
     static async getTransactionsByMonthAndYear(month, year){
-        const response = await axios.get(`${this.BASE_URL}/transactions//by-month-year`, {
+        const response = await axios.get(`${this.BASE_URL}/transactions/by-month-year`, {
             headers: this.getHeader(),
             params: {
                 month: month,

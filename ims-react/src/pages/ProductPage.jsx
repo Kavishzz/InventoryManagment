@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../component/Layout";
 import ApiService from "../service/ApiService";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PaginationComponent from "../component/PaginationComponent";
 
 const ProductPage = () => {

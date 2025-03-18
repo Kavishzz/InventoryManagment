@@ -190,7 +190,7 @@ const AddEditProductPage = () => {
                         
                         {imageUrl && (
                             <img src={imageUrl}
-                            alt="image"
+                            alt="preview"
                             className="image-preview" />
                         )}
 

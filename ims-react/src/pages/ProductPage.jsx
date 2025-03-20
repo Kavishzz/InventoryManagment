@@ -86,6 +86,7 @@ const ProductPage = () => {
                                     <p className="product-sku">Sku: {product.sku}</p>
                                     <p className="product-price">Price: {product.price}</p>
                                     <p className="product-quantity">Quantity: {product.stockQuantity}</p>
+                                    <p className="product-location">Location: {product.location}</p>
                                 </div>
 
                                 <div className="product-actions">

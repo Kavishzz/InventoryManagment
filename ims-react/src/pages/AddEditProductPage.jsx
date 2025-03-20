@@ -8,6 +8,7 @@ const AddEditProductPage = () => {
     const [name, setName] = useState("");
     const [sku, setSku] = useState("");
     const [price, setPrice] = useState("");
+    const [location, setLocation] = useState("");
     const [stockQuantity, setStockQuantity] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [description, setDescription] = useState("");
@@ -40,6 +41,7 @@ const AddEditProductPage = () => {
                         setName(productData.product.name)
                         setSku(productData.product.sku)
                         setPrice(productData.product.price)
+                        setLocation(productData.product.location)
                         setStockQuantity(productData.product.stockQuantity)
                         setCategoryId(productData.product.categoryId)
                         setDescription(productData.product.description)
@@ -81,6 +83,7 @@ const AddEditProductPage = () => {
         const formData = new FormData();
         formData.append("name", name);
         formData.append("sku", sku);
+        formData.append("location", location);
         formData.append("price", price);
         formData.append("stockQuantity", stockQuantity);
         formData.append("categoryId", categoryId);
@@ -154,6 +157,16 @@ const AddEditProductPage = () => {
                          type="number"
                          value={price}
                          onChange={(e)=> setPrice(e.target.value)}
+                         required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Location</label>
+                        <input
+                         type="text"
+                         value={location}
+                         onChange={(e)=> setLocation(e.target.value)}
                          required
                         />
                     </div>

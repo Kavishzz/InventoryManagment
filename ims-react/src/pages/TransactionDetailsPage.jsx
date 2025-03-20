@@ -78,6 +78,7 @@ const TransactionDetailsPage = () => {
                             <h2>Product Information</h2>
                             <p>Name: {transaction.product.name}</p>
                             <p>SKU: {transaction.product.sku}</p>
+                            <p>Location: {transaction.product.location}</p>
                             <p>Price: {transaction.product.price.toFixed(2)}</p>
                             <p>Stock Quantity: {transaction.product.stockQuantity}</p>
                             <p>Description: {transaction.product.description}</p>

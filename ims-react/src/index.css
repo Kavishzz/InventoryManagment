@@ -295,6 +295,7 @@ button[type="submit"]:hover {
   margin-bottom: 30px;
   color: #008080;
   margin-left: 10px;
+  justify-content: space-between;
 }
 
 .supplier-header button {
@@ -307,7 +308,7 @@ button[type="submit"]:hover {
 }
 
 .add-sup {
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .supplier-list {

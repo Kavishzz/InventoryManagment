@@ -40,7 +40,7 @@ const LoginPage = () => {
 
     return(
         <div className="auth-container">
-            <h2>Register</h2>
+            <h2>Log in</h2>
 
             {message && <p className="message">{message}</p>}
 

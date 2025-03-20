@@ -40,6 +40,7 @@ public class ProductController {
         @RequestParam("price") BigDecimal price,
         @RequestParam("stockQuantity") Integer stockQuantity,
         @RequestParam("categoryId") Long categoryId,
+        @RequestParam("location") String location,
         @RequestParam(value = "description", required = false) String description
         ) {
 
@@ -51,6 +52,7 @@ public class ProductController {
         productDTO.setStockQuantity(stockQuantity);
         productDTO.setCategoryId(categoryId);
         productDTO.setDescription(description);
+        productDTO.setLocation(location);
         
         return ResponseEntity.ok(productService.saveProduct(productDTO, imagFile));
     }
@@ -66,7 +68,8 @@ public class ProductController {
         @RequestParam(value="stockQuantity", required = false) Integer stockQuantity,
         @RequestParam(value="categoryId", required = false) Long categoryId,
         @RequestParam(value = "description", required = false) String description,
-        @RequestParam(value="productId") Long productId
+        @RequestParam(value="productId") Long productId,
+        @RequestParam(value="location") String location
         ) {
 
         ProductDTO productDTO = new ProductDTO();
@@ -78,6 +81,7 @@ public class ProductController {
         productDTO.setStockQuantity(stockQuantity);
         productDTO.setCategoryId(categoryId);
         productDTO.setDescription(description);
+        productDTO.setLocation(location);
         
         return ResponseEntity.ok(productService.updateProduct(productDTO, imagFile));
     }

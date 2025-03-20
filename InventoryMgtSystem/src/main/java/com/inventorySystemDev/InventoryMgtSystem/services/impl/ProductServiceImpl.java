@@ -50,6 +50,7 @@ public class ProductServiceImpl implements ProductService{
                 .stockQuantity(productDTO.getStockQuantity())
                 .description(productDTO.getDescription())
                 .category(category)
+                .location(productDTO.getLocation())
                 .build();
 
         if(imagFile != null && !imagFile.isEmpty()){
@@ -103,6 +104,9 @@ public class ProductServiceImpl implements ProductService{
         }
         if(productDTO.getStockQuantity() != null && productDTO.getStockQuantity() >= 0){
             exisProduct.setStockQuantity(productDTO.getStockQuantity());
+        }
+        if(productDTO.getLocation() != null && !productDTO.getLocation().isBlank()){
+            exisProduct.setLocation(productDTO.getLocation());
         }
 
         //update the product

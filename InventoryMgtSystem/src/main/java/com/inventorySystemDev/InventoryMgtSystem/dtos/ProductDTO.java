@@ -29,6 +29,8 @@ public class ProductDTO {
 
     private String sku;
 
+    private String location;
+
     private BigDecimal price;
 
     private Integer stockQuantity;

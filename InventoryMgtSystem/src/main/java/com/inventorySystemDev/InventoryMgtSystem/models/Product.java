@@ -37,6 +37,10 @@ public class Product {
     @Min(value = 0, message = "stock quantity can not be negative")
     private Integer stockQuantity;
 
+    @Column(unique = true)
+    @NotBlank(message = "location is required")
+    private String location;
+
     private String description;
     private LocalDateTime expiryDate;
     private String imageUrl;
